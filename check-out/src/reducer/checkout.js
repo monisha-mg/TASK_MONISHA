@@ -1,7 +1,7 @@
-import {GET_DETAILS,GET_DETAILS_SUCCESS, CHECKOUT} from "../action-type/checkout";
+import {GET_DETAILS,GET_DETAILS_SUCCESS, CHECKOUT_EDIT_ITEM} from "../action-type/checkout";
 
 export default (
-    prevState = {checkout:[], isLoading:false},
+    prevState = {checkout:[], isLoading:false,editProduct:{}},
     action
 ) => {
     switch(action.type){
@@ -17,10 +17,11 @@ export default (
             checkout:action.checkout,
             isLoading:true
         }
-        case CHECKOUT:
-        return{
-            ...prevState,
-            checkout:{...prevState.checkout,...action.continueCheckout}
+       
+        case CHECKOUT_EDIT_ITEM:
+         return {
+        ...prevState,
+        editProduct: { ...prevState.editProduct, ...action.editItem }
         }
         default: 
          return{

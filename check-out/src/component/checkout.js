@@ -2,60 +2,66 @@ import React, {Component} from "react";
  
    class Checkout extends Component {
        render(){
-        console.log(this.props.checkDetails)
+        console.log(this.props.checkout.FullName,"monisha");
         return(
             <div>
+                {/* <table>
+                
+                    <tr>
+                        <td>{this.props.checkDetails.FullName}</td>
+                    </tr>
+                </table> */}
                 <h1>checkout Form</h1>
         <div className="col-md-6">
          
            <h3>Billing Address</h3>
-           <label for="fname"><i className="fa fa-user"></i> Full Name</label>
-           <input type="text" className="form-control" id="fname" name="FullName" placeholder=""  onChange={(p) => {this.props.continuecheck(p)}}/>
-           <label for="email"><i className="fa fa-envelope"></i> Email</label>
+           <label ><i className="fa fa-user"></i> Full Name</label>
+           <input type="text" className="form-control" id="fname" name="FullName" placeholder=""  onChange={(p) => {this.props.continuecheck(p)}} value={this.props.checkout.FullName}/>
+           <label ><i className="fa fa-envelope"></i> Email</label>
            <input type="text" className="form-control" id="email" name="Email" placeholder="john@example.com"  onChange={(p) => {this.props.continuecheck(p)}}/>
-           <label for="adr"><i className="fa fa-address-card-o"></i> Address</label>
+           <label ><i className="fa fa-address-card-o"></i> Address</label>
            <input type="text" className="form-control" id="adr" name="Address" placeholder="542 W. 15th Street"  onChange={(p) => {this.props.continuecheck(p)}} />
-           <label for="city"><i className="fa fa-institution"></i> City</label>
+           <label ><i className="fa fa-institution"></i> City</label>
            <input type="text" className="form-control" id="city" name="City" placeholder="New York"  onChange={(p) => {this.props.continuecheck(p)}} />
         
           
-               <label for="state">State</label>
+               <label >State</label>
                <input type="text" className="form-control" id="state" name="state" placeholder="NY"  onChange={(p) => {this.props.continuecheck(p)}}/>
             
-               <label for="zip">Zip</label>
+               <label >Zip</label>
                <input type="text" className="form-control" id="zip" name="Zip" placeholder="10001"  onChange={(p) => {this.props.continuecheck(p)}}/>
           
          </div>
         
          <div className="col-md-6">
            <h3>Payment</h3>
-           <label for="fname">Accepted Cards</label>
+           <label >Accepted Cards</label>
            <div className="icon-container">
              <i className="fa fa-cc-visa"></i>
              <i className="fa fa-cc-amex" ></i>
              <i className="fa fa-cc-mastercard" ></i>
              <i className="fa fa-cc-discover"></i>
            </div>
-           <label for="cname">Name on Card</label>
+           <label>Name on Card</label>
            <input type="text" className="form-control" id="cname" name="NameOnCard" placeholder="John More Doe"  onChange={(p) => {this.props.continuecheck(p)}}/>
-           <label for="ccnum">Credit card number</label>
+           <label >Credit card number</label>
            <input type="text" className="form-control" id="ccnum" name="CreditCardNumber" placeholder="1111-2222-3333-4444"  onChange={(p) => {this.props.continuecheck(p)}}/>
-           <label for="expmonth">Exp Month</label>
+           <label >Exp Month</label>
            <input type="text" className="form-control" id="ExpMonth" name="expmonth" placeholder="September" onChange={(p) => {this.props.continuecheck(p)}} />
            
-               <label for="expyear">Exp Year</label>
+               <label >Exp Year</label>
                <input type="text" className="form-control" id="ExpYear" name="expyear" placeholder="2018"  onChange={(p) => {this.props.continuecheck(p)}}/>
              
              
-               <label for="cvv">CVV</label>
+               <label>CVV</label>
                <input type="text" className="form-control" id="CVV" name="cvv" placeholder="352"  onChange={(p) => {this.props.continuecheck(p)}}/>
             
          </div>
          <label>
-         <input type="checkbox" className="form-control" checked="checked" name="sameadr" /> Shipping address same as billing
+         <input type="checkbox" className=""  name="sameadr" /> Shipping address same as billing
         </label>
-        {/* <button type="submit" value="Continue to checkout"  onClick={() => { this.props.checkout(this.props.checkout) }}>Continue to checkout</button> */}
-        <button type="submit" value="Continue to checkout" onClick={this.props.continueCheckout}>Continue to checkout</button>
+        {/* <button type="submit" value="Continue to checkout"  onClick={() => { this.props.checkout(this.props.checkout) }}>Continue to checkout</button>*/}
+        <button type="submit" value="Continue to checkout" onClick={() => { this.props.handleEditClick(this.props.continueCheckout) }}>Continue to checkout</button>  
             </div>
         )
        
